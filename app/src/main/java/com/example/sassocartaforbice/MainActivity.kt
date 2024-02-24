@@ -53,9 +53,12 @@ fun Pulsanti(){
         var paperImage by remember{ mutableStateOf(R.drawable.paper) }
         var scissorsImage by remember{ mutableStateOf(R.drawable.scissors) }
 
+        var MosseG by remember{ mutableStateOf(R.drawable.rock) }
+        var MosseP by remember{ mutableStateOf(R.drawable.rock) }
+
         Image (painter = painterResource(id = rockImage), contentDescription = "")
         Image (painter = painterResource(id = paperImage), contentDescription = "")
-        Image (painter = painterResource(id = scissorsImage), contentDescription = "")
+       Image (painter = painterResource(id = scissorsImage), contentDescription = "")
 
         Row (modifier = Modifier.padding(10.dp,10.dp)){
             Text(text = "Mosse disponibili")
@@ -79,16 +82,22 @@ fun Pulsanti(){
             }
         }
         fun IntRange.random(): Int {
-            val Rand = Random.nextInt((endInclusive + 1) - start) + start
-            (1..3).random()
-            if (Rand == 1){
-                scissorsImage = R.drawable.rock
-            } else if (Rand == 2){
-                paperImage = R.drawable.paper
+            val rand = Random.nextInt((endInclusive + 1) - start) + start
+            //(1..3).random()
+            if (rand == 1){
+                MosseP = R.drawable.rock
+            } else if (rand == 2){
+                MosseP = R.drawable.paper
             } else {
-                scissorsImage = R.drawable.scissors
+                MosseP = R.drawable.scissors
             }
-            return Rand
+            return rand
         }
     }
+}
+
+@Composable
+@Preview
+fun AppPreview (){
+Pulsanti()
 }

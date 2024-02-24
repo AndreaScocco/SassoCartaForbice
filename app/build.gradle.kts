@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.sassocartaforbice"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.sassocartaforbice"
